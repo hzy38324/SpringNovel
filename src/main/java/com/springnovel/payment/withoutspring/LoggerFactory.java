@@ -1,4 +1,4 @@
-package com.springnovel.paymentwithoutspring;
+package com.springnovel.payment.withoutspring;
 
 import com.springnovel.perfectlogger.ILogger;
 import com.springnovel.perfectlogger.ServerLogger;

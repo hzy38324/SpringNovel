@@ -6,9 +6,9 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.springnovel.paymentwithoutspring.PaymentActionV1;
-import com.springnovel.paymentwithoutspring.PaymentActionV2;
-import com.springnovel.paymentwithspringxml.PaymentAction;
+import com.springnovel.payment.springxml.PaymentAction;
+import com.springnovel.payment.withoutspring.PaymentActionV1;
+import com.springnovel.payment.withoutspring.PaymentActionV2;
 
 public class PaymentTest {
 	
@@ -24,10 +24,17 @@ public class PaymentTest {
 		paymentActionV2.pay(new BigDecimal(1));
 	}
 	
-	@Test
-	public void testPaymentActionWithSpringXML() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("payment.xml");
-		PaymentAction paymentAction = (PaymentAction) context.getBean("paymentAction");
-		paymentAction.pay(new BigDecimal(2));
-	}
+//	@Test
+//	public void testPaymentActionPayWithSpringXML() {
+//		ApplicationContext context = new ClassPathXmlApplicationContext("payment.xml");
+//		PaymentAction paymentAction = (PaymentAction) context.getBean("paymentAction");
+//		paymentAction.pay(new BigDecimal(2));
+//	}
+//	
+//	@Test
+//	public void testPaymentActionAddOrderWithSpringXML() {
+//		ApplicationContext context = new ClassPathXmlApplicationContext("payment.xml");
+//		PaymentAction paymentAction = (PaymentAction) context.getBean("paymentAction");
+//		paymentAction.addOrder("create_subscriber");
+//	}
 }

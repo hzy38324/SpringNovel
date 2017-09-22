@@ -1,18 +1,13 @@
-package com.springnovel.paymentwithspringxml;
+package com.springnovel.payment.withoutspring;
 
 import java.math.BigDecimal;
 
 import com.springnovel.perfectlogger.ILogger;
 
-public class PaymentAction {
+public class PaymentActionV2 {
 	
-	private ILogger logger;
+	private ILogger logger = LoggerFactory.createLogger();
 	
-	public PaymentAction(ILogger logger) {
-		super();
-		this.logger = logger;
-	}
-
 	public void pay(BigDecimal payValue) {
 		logger.log("pay begin, payValue is " + payValue);
 		

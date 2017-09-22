@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import com.springnovel.dao.IOrderDao;
 import com.springnovel.dao.MockOrderDao;
-import com.springnovel.paymentwithspringxml.OrderAction;
+import com.springnovel.order.springxml.OrderAction;
 
 public class OrderTest {
 	

@@ -1,4 +1,4 @@
-package com.springnovel.paymentwithoutspring;
+package com.springnovel.payment.withoutspring;
 
 import java.math.BigDecimal;
 
