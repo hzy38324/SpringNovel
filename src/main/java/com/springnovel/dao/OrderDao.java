@@ -17,5 +17,10 @@ public class OrderDao implements IOrderDao{
 	public void addOrder(String orderType) {
 		System.out.println("real add order, order type is " + orderType);
 	}
-	
+
+	@Override
+	public void updateOrderAfterPayment(String orderId) {
+		System.out.println("real update order after payment, orderId is " + orderId);
+	}
+
 }

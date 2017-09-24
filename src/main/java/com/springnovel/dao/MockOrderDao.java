@@ -13,5 +13,10 @@ public class MockOrderDao implements IOrderDao{
 	public void addOrder(String orderType) {
 		System.out.println("mock add order, order type is " + orderType);
 	}
-	
+
+	@Override
+	public void updateOrderAfterPayment(String orderId) {
+		System.out.println("mock update order after payment, orderId is " + orderId);
+	}
+
 }

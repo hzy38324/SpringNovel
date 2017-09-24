@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <context:annotation-config/>
+
+    <!--<bean id="paymentAction" class="com.springnovel.payment.springxml.PaymentAction">-->
+    <!--<constructor-arg ref="serverLogger">-->
+    <!--</constructor-arg>-->
+    <!--<constructor-arg ref="orderDao">-->
+    <!--</constructor-arg>-->
+    <!--</bean>-->
+
+    <bean id="paymentAction_setInjection" class="com.springnovel.payment.springxml.PaymentAction_SetInjection">
+        <constructor-arg ref="serverLogger">
+        </constructor-arg>
+        <property name="orderDao" ref="orderDao"></property>
+    </bean>
+
+    <bean id="paymentActionMixed" class="com.springnovel.payment.springmixed.PaymentActionMixed">
+        <constructor-arg ref="serverLogger">
+        </constructor-arg>
+    </bean>
+
+    <bean id="serverLogger" class="com.springnovel.perfectlogger.ServerLogger"/>
+    <bean id="orderDao" class="com.springnovel.dao.OrderDao"/>
+
+</beans>
+
