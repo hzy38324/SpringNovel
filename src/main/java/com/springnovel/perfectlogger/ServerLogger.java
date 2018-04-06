@@ -1,8 +1,11 @@
 package com.springnovel.perfectlogger;
 
 public class ServerLogger implements ILogger{
+    public ServerLogger() {
+        System.out.println("aaa");
+    }
 
-	@Override
+    @Override
 	public void log(String logInfo) {
 		System.out.println("ServerLogger: " + logInfo);
 	}

@@ -28,6 +28,7 @@ public class PaymentTest {
 	@Test
 	public void testPaymentActionPayWithSpringXML() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("payment.xml");
+        // ApplicationContext默认会在容器启动后实例化对象（看构造函数中的refresh方法），所以下面这个getBean方法可以直接拿到对象，除非设置lazy-init="true"
 		PaymentAction paymentAction = (PaymentAction) context.getBean("paymentAction");
 		paymentAction.pay(new BigDecimal(2));
 	}

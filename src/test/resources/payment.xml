@@ -8,12 +8,13 @@
 
     <context:annotation-config/>
 
-    <!--<bean id="paymentAction" class="com.springnovel.payment.springxml.PaymentAction">-->
-    <!--<constructor-arg ref="serverLogger">-->
-    <!--</constructor-arg>-->
-    <!--<constructor-arg ref="orderDao">-->
-    <!--</constructor-arg>-->
-    <!--</bean>-->
+    <!--lazy-init="true"-->
+    <bean id="paymentAction" class="com.springnovel.payment.springxml.PaymentAction">
+    <constructor-arg ref="serverLogger">
+    </constructor-arg>
+    <constructor-arg ref="orderDao">
+    </constructor-arg>
+    </bean>
 
     <bean id="paymentAction_setInjection" class="com.springnovel.payment.springxml.PaymentAction_SetInjection">
         <constructor-arg ref="serverLogger">
