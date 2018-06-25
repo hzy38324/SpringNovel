@@ -1,15 +1,15 @@
 package com.springnovel.test;
 
-import java.math.BigDecimal;
-
-import com.springnovel.payment.springxml.PaymentAction_SetInjection;
-import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.springnovel.payment.springxml.PaymentAction;
+import com.springnovel.payment.springxml.PaymentAction_SetInjection;
 import com.springnovel.payment.withoutspring.PaymentActionV1;
 import com.springnovel.payment.withoutspring.PaymentActionV2;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.math.BigDecimal;
 
 public class PaymentTest {
 	
@@ -27,7 +27,7 @@ public class PaymentTest {
 	
 	@Test
 	public void testPaymentActionPayWithSpringXML() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("payment.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("payment.xml");
         // ApplicationContext默认会在容器启动后实例化对象（看构造函数中的refresh方法），所以下面这个getBean方法可以直接拿到对象，除非设置lazy-init="true"
 		PaymentAction paymentAction = (PaymentAction) context.getBean("paymentAction");
 		paymentAction.pay(new BigDecimal(2));

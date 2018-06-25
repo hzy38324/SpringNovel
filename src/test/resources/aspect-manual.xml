@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="mockTask" class="com.springnovel.test.springSecret.bean.aspect.MockTask"/>
+
+    <!--
+        由于这个对象是FactoryBean，所以此对象最后放入Spring容器的，是getObject方法返回的对象，
+        也就是target对象的代理对象，也就是mockTask的代理对象
+    -->
+    <!-- 参考测试用例 test_Spring_AOP_With_IOC -->
+    <bean id="taskProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="mockTask"/>
+        <property name="interceptorNames">
+            <list>
+                <value>advisor</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="advisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="mappedName" value="execute"/>
+        <property name="advice" ref="logMethodInterceptor"/>
+    </bean>
+
+    <bean id="logMethodInterceptor" class="com.springnovel.test.springSecret.bean.aspect.LogMethodInterceptor">
+    </bean>
+
+</beans>
+

@@ -1,8 +1,8 @@
 package com.springnovel.test.springSecret.demo;
 
-import com.springnovel.test.springSecret.bean.DowJonesNewsListener;
-import com.springnovel.test.springSecret.bean.DowJonesNewsPersister;
-import com.springnovel.test.springSecret.bean.FXNewsProvider;
+import com.springnovel.test.springSecret.bean.ioc.DowJonesNewsListener;
+import com.springnovel.test.springSecret.bean.ioc.DowJonesNewsPersister;
+import com.springnovel.test.springSecret.bean.ioc.FXNewsProvider;
 import org.junit.Test;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyValue;

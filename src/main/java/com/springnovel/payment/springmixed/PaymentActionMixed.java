@@ -19,7 +19,7 @@ public class PaymentActionMixed {
 		this.logger = logger;
 	}
 	
-	@Autowired
+//	@Autowired
 	public PaymentActionMixed(IOrderDao orderDao) {
 		super();
 		this.orderDao = orderDao;

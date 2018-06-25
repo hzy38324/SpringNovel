@@ -1,4 +1,4 @@
-package com.springnovel.test.springSecret.bean;
+package com.springnovel.test.springSecret.bean.ioc;
 
 public class DowJonesNewsPersister implements IFXNewsPersister {
     @Override
