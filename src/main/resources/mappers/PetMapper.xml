@@ -9,8 +9,12 @@
         select * from pet where owner = #{owner}
     </select>
 
+    <select id="findAll" resultType="com.springnovel.mybatis.model.Pet">
+        select * from pet
+    </select>
+
     <insert id="save">
-        INSERT INTO pet (name,owner,species,sex) VALUES(#{name},#{owner},#{species},#{sex})
+        INSERT INTO pet (id,name,owner,species,sex) VALUES(#{id},#{name},#{owner},#{species},#{sex})
     </insert>
 
     <delete id="deleteAll">

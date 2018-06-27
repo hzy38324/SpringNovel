@@ -6,6 +6,7 @@ package com.springnovel.mybatis.model;
  * @author: hzy created on 2018/06/24
  */
 public class Pet {
+    private int id;
     private String name;
     private String owner;
     private String species;
@@ -14,11 +15,20 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(String name, String owner, String species, int sex) {
+    public Pet(int id, String name, String owner, String species, int sex) {
+        this.id = id;
         this.name = name;
         this.owner = owner;
         this.species = species;
         this.sex = sex;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

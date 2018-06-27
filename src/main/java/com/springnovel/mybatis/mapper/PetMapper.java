@@ -12,6 +12,8 @@ import java.util.List;
 public interface PetMapper {
     List<Pet> getPets(String owner);
 
+    List<Pet> findAll();
+
     boolean save(Pet pet);
 
     boolean deleteAll();
