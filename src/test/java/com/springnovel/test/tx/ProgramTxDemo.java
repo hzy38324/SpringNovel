@@ -1,4 +1,4 @@
-package com.springnovel.test.mybatis;
+package com.springnovel.test.tx;
 
 import com.springnovel.mybatis.model.Pet;
 import com.springnovel.mybatis.service.PetService;
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
  *
  * @author: hzy created on 2018/06/24
  */
-public class MyBatisDemo {
+public class ProgramTxDemo {
 
     private ApplicationContext context;
 

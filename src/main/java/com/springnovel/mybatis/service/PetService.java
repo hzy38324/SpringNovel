@@ -5,11 +5,13 @@ import com.springnovel.mybatis.model.Pet;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * <p>
@@ -17,11 +19,22 @@ import java.util.List;
  * @author: hzy created on 2018/06/24
  */
 public class PetService {
+
+    private PetSaveService petSaveService;
+
     private PetMapper petMapper;
 
     private TransactionTemplate transactionTemplate;
 
     private PlatformTransactionManager transactionManager;
+
+    public PetSaveService getPetSaveService() {
+        return petSaveService;
+    }
+
+    public void setPetSaveService(PetSaveService petSaveService) {
+        this.petSaveService = petSaveService;
+    }
 
     public PetMapper getPetMapper() {
         return petMapper;
@@ -128,5 +141,26 @@ public class PetService {
             throw e;
         }
         transactionManager.commit(txStatus);
+    }
+
+    @Transactional
+    public void deleteAllAndSaveDeclareTx(Pet pet) {
+        petMapper.deleteAll();
+        if ("Tome".equals(pet.getOwner())) {
+            throw new UnsupportedOperationException();
+        }
+        petMapper.save(pet);
+    }
+
+    @Transactional
+    public void batchSaveUsingRequireNew(Pet pet, int num) {
+        IntStream.rangeClosed(1, num)
+                .forEach(i -> petSaveService.saveUsingRequireNew(pet));
+    }
+
+    @Transactional
+    public void batchSaveUsingNested(Pet pet, int num) {
+        IntStream.rangeClosed(1, num)
+                .forEach(i -> petSaveService.saveUsingNested(pet));
     }
 }

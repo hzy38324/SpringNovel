@@ -23,6 +23,13 @@ public class Pet {
         this.sex = sex;
     }
 
+    public Pet(String name, String owner, String species, int sex) {
+        this.name = name;
+        this.owner = owner;
+        this.species = species;
+        this.sex = sex;
+    }
+
     public int getId() {
         return id;
     }
