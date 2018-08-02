@@ -5,6 +5,7 @@ import com.springnovel.mybatis.model.Pet;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
@@ -153,6 +154,11 @@ public class PetService {
     }
 
     @Transactional
+    public void saveUsingNested(Pet pet) {
+        petSaveService.saveUsingNested(pet);
+    }
+
+    @Transactional
     public void batchSaveUsingRequireNew(Pet pet, int num) {
         IntStream.rangeClosed(1, num)
                 .forEach(i -> petSaveService.saveUsingRequireNew(pet));
@@ -162,5 +168,10 @@ public class PetService {
     public void batchSaveUsingNested(Pet pet, int num) {
         IntStream.rangeClosed(1, num)
                 .forEach(i -> petSaveService.saveUsingNested(pet));
+    }
+
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    public void saveUsingSERIALIZABLE(Pet pet) {
+        petMapper.save(pet);
     }
 }

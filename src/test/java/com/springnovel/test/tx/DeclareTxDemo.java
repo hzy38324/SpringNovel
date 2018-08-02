@@ -61,4 +61,16 @@ public class DeclareTxDemo {
         long cost = System.currentTimeMillis() - begin;
         System.out.println("cost: " + cost);
     }
+
+    @Test
+    public void test_saveUsingNested() {
+        Pet pet = new Pet("little dog", "Tome", "dog", 1);
+        petService.saveUsingNested(pet);
+    }
+
+    @Test
+    public void test_saveUsingSERIALIZABLE() {
+        Pet pet = new Pet("little dog", "Tome", "dog", 1);
+        petService.saveUsingSERIALIZABLE(pet);
+    }
 }

@@ -18,7 +18,7 @@
     <!-- basic db config end -->
 
     <!-- transaction config -->
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
