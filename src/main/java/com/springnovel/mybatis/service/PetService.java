@@ -95,7 +95,6 @@ public class PetService {
                 petMapper.save(pet);
             }
         });
-
     }
 
     public void deleteAllAndSaveUsingTxManager(final Pet pet) throws Throwable {
@@ -170,7 +169,7 @@ public class PetService {
                 .forEach(i -> petSaveService.saveUsingNested(pet));
     }
 
-    @Transactional(isolation = Isolation.SERIALIZABLE)
+    @Transactional(isolation = Isolation.READ_UNCOMMITTED)
     public void saveUsingSERIALIZABLE(Pet pet) {
         petMapper.save(pet);
     }

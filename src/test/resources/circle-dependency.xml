@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <bean id="circleA" class="com.springnovel.test.bean.circle.CircleA" lazy-init="true">
+        <property name="circleB" ref="circleB"/>
+        <property name="aName" value="AAA"/>
+    </bean>
+
+    <bean id="circleB" class="com.springnovel.test.bean.circle.CircleB" lazy-init="true">
+        <property name="circleA" ref="circleA"/>
+        <property name="bName" value="BBB"/>
+    </bean>
+
+</beans>
+

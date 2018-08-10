@@ -33,7 +33,7 @@ public class DeclareTxDemo {
     }
 
     @Test
-    public void test_TxTemplate() {
+    public void test_TxAnnotation() {
         Pet pet = new Pet(2, "little dog", "Tome", "dog", 1);
         try {
             petService.deleteAllAndSaveDeclareTx(pet);
